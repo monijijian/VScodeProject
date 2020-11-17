@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue ajax  vue-resource</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{},
+            methods:{
+                //发送get请求, 在methods中声明get方法
+                get:function(){
+                    //形式是  this.$http.get(网址和请求参数).then(里面是两个方法，成功回调的方法、失败回调的方法)
+                    this.$http.get().then(function(res){},function(err){});
+
+                    //get传递数据
+                    this.$http.get('get.php',{params:{a:1,b:2}}).then(
+                        function(res){
+
+                        },
+                        function(err){
+
+                        }
+                    );
+                },
+
+                //发送post请求，同样是在methods中声明
+                post:function(){
+                    this.$http.post
+                }
+            }
+        })
+    </script>
+</body>
+</html>

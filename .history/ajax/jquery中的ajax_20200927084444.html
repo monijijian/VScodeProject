@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>jquery-ajax</title>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+</head>
+<body>
+    <input type="button" value="点击" id="btn">
+    <div id="showInfo"></div>
+    
+    <script type="text/javascript">
+        $(function(){
+
+            $("#btn").click(function(){
+                $.ajax({
+                    url:"person.json",//请求地址
+
+                    //data:   ,  需要发送的请求数据
+                    //beforeSend:function(argment){},  数据发送前的一些验证
+
+                    dataType:"text",//数据类型
+                    type:"get",//请求方式
+                    
+                    success:function(data){
+                        alert(data);
+                        //$("#showInfo").html(data);
+                    },
+                    error:function(e){
+                        console.log(e);
+                    }
+                });
+            });
+
+
+
+        });
+
+    </script>
+</body>
+</html>

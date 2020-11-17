@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue子组件用父组件的方法</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1 @></com1>
+    </div>
+
+    <template id="tem1">
+        <input type="button" @click="son" value="点击">
+    </template>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                show:function(){
+                    alert('i am this parent');
+                }
+            },
+            components:{
+                com1:{
+                    template:'#tem1',
+                    data(){
+                        return{}
+                    },
+                    props:[],
+                    methods:{
+                        son:function(){
+                            alert('i am this son');
+                            this.$emit('par');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC划清界限t</title>
+
+    <style>
+        .gege{
+            border: 5px solid red;
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin: 10px;
+        }
+        .didi{
+            border: 10px solid  gray;
+            height: 100px;
+            width: 200px;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="gege"></div>
+    <div class="didi"></div>
+
+    <div class="gege"></div>
+    <div class="didi"></div>
+    
+</body>
+</html>

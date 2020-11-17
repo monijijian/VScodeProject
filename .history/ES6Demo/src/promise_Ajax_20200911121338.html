@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const request = require('request');
+
+        //promise封装接口1
+        const request1 = function () {
+            const promise = new Promise((resolve,reject) => {
+                request('https://www.baidu.com',(response) =>{
+                    if(response.retC)
+                })
+            });
+        }
+    </script>
+</body>
+</html>

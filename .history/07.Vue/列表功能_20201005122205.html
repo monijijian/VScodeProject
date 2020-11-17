@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE实现列表功能</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .table {
+            width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse; /*这一行，不能少：表格的两边框合并为一条*/
+        }
+
+        .table th {
+            background: #0094ff;
+            color: white;
+            font-size: 16px;
+            border: 1px solid black;
+            padding: 5px;
+
+        }
+
+        .table tr td {
+            text-align: center;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div id="form">
+            编号: <input type="text" v-model="formData.id">
+            名称：<input type="text" v-model="formData.name">
+
+            <button @click="adddData">添加</button>
+        </div>
+
+        <table class="table">
+            <th>编号</th>
+            <th>姓名</th>
+            <th>创建时间</th>
+            <th>操作</th>
+
+            <tr v-show="list.length==0">
+                <td colspan="4">列表无数据</td>
+            </tr>
+
+            <tr v-for="item in list">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.ctime}}</td>
+                <td><a href="#" @click="delate(item.id)">删除</a></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                list:[{id:1,name:'xiao1',ctime:new Date}],
+                formData:{id:0,name:''}
+            },
+            methods:{
+                adddData:function(){
+                    let p = {id:this.formData.id,name:this.formData.name,ctime:new Date()}
+                    this.list.push(p);
+                    
+                    this.formData.id=0;
+                    this.formData.name='';
+                },
+                delate:function(id){
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

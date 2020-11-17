@@ -1,0 +1,1 @@
+import {name,age,myModel} from 'es6模块化';

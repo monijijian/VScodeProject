@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不定宽高的元素如何居中</title>
+
+    <style>
+        .par{
+            background-color: cornsilk;
+            border: 5px solid burlywood;
+            width: 400px;
+            height: 200px;
+
+            margin: 20px;
+            position: relative;
+        }
+        .son{
+            background-color: cadetblue;
+            border: 2px solid rgb(187, 167, 233);
+            width: 200px;
+            height: 100px;
+            text-align: center;
+        }
+        .mar{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -100px;
+        }
+        .tran{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            /* transform属性应用于2D、3D转换 
+            参数translate(x,y)定义2D转换、translate3d(x,y,z)定义3D转换
+            */
+        }
+        .flex{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .auto{
+            margin: auto;
+        }
+        .litson{
+            background-color: cadetblue;
+            border: 2px solid rgb(187, 167, 233);
+            width: 100px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="par">
+        <div class="son">原始形态</div>
+    </div>
+
+    <div class="par">
+        <div class="son mar">
+            父元素相对定位，子元素绝对定位left和top让其左上角居中
+            ，然后调整margin-top和margin-left使其中心居中
+        </div>
+    </div>
+
+    <div class="par">
+        <div class="son tran">
+            和第一种不同在使用transform的2D转换，让子元素中心居中
+        </div>
+    </div>
+
+    <div class="par flex">
+        <div class="son">
+            父元素设置排列方式为flex
+        </div>
+    </div>
+
+    <div class="par flex">
+        <div class="litson auto"></div>
+        <div class="litson"></div>
+        <div class="litson"></div>
+    </div>
+</body>
+</html>

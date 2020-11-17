@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for:"item in arr">{{item}}</li>
+            <!-- 数组的遍历 -->
+
+            <li v-for="(item,index) in objList">姓名：{{item.name}} --- 年龄：{{item.age}} --- 索引：{{index}}</li>
+            <!-- 对象数组的便利，有索引 -->
+
+            <li v-for="(value,key) in obj1"></li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4],
+
+                //对象数组
+                objList: [
+                    { name: 'smyh', age: '26' },
+                    { name: 'vae', age: '32' },
+                    { name: 'xiaoming', age: '20' }
+                ],
+            }
+        });
+    </script>
+</body>
+</html>

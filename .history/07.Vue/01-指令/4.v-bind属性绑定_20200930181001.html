@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind属性绑定机制</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" value="name">
+        <!-- 这里的value的值就是name字符串 -->
+
+        <input type="text" v-bind:value="name">
+        <!-- 这里的value属性绑定了vue中的name值 -->
+
+        <a v-bind="{href:'http://www.baidu.com/'+path}">超链接</a>
+
+    </div>
+
+    <script>
+        var v = new Vue({
+            el:'#app',
+            data:{
+                name:'i am a name ,for you',
+                path:'2.html'
+            }
+        });
+    </script>
+</body>
+</html>

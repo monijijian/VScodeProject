@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记事本</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <section id="todoapp">
+        <!-- 输入框 -->
+        <header>
+            <h1>土豆🥔</h1>
+            <input placeholder="添加土豆" autofocus="autofocus" autocomplete="off" v-model="inputValue" @keyup.enter="add"/>
+        </header>
+        <!-- 列表区域 -->
+        <section>
+            <ul>
+                <li v-for="(it,index) in list">
+                    <div>
+                        <span>{{index+1}}</span>
+                        <label>{{it}}</label>
+                        <button>x</button>
+                    </div>
+
+                </li>
+            </ul>
+        </section>
+        <!-- 统计和清空 -->
+        <footer>
+
+        </footer>
+
+        <script>
+            var app = new Vue({
+                el:"#todoapp",
+                data:{
+                    list:["写代码","吃饭饭","睡觉觉"],
+                    inputValue:"hahahaha",
+                },
+                methods:{
+                    add:function(){
+                        this.list.push(this.inputValue);
+                    }
+                }
+            });
+        </script>
+    </section>
+</body>
+</html>

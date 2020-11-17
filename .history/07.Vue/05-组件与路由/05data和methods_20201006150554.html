@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为组件添加data和methods</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <template id="exe">
+            
+            <input type="button" value="add1" @click="add1">
+            {{num1}}
+
+            <input type="button" value="add2" @click="add2">
+            {{num2}}
+        </template>
+    </div>
+
+    <script>
+        Vue.component('com',{
+            template:'#exe',
+            data:function(){
+                
+            }
+        })
+
+        new Vue({
+            el:'#app'
+        });
+    </script>
+</body>
+</html>

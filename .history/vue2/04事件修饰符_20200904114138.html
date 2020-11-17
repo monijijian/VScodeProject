@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .inner{
+            height: 150px;
+            background-color: darkcyan;
+            margin: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+
+        <div class='inner' @click = 'dck'>
+            <input type="button" value='点我1' @click.stop='bck'>
+            <!-- .stop阻止事件向父元素冒泡 -->
+        </div>
+
+        <a href="http://www.baidu.com" @click.prevent="ack">百度</a>
+        <!-- 使用.prevent阻止默认行为 -->
+
+        <div class='inner' @click.capture = 'dck'>
+        <input type="button" value='点我2' @click='bck'>
+        <!-- .capture实现捕获触发事件的机制 -->
+
+        <div class='inner' @click.self = 'dck'>
+        <input type="button" value='点我3' @click='bck'>
+        <!-- .self只有点击自己才触发 -->
+
+        </div>
+
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                dck(){
+                    console.log('div');
+                },
+                bck(){
+                    console.log('btn');
+                },
+                ack(){
+                    console.log('baidu');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

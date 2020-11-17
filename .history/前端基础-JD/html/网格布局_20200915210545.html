@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网格布局</title>
+
+    <style>
+        .wrap5{
+            display: grid;
+            grid-template-rows: 200px;
+            grid-template-columns: 100px,200px,300px;
+            background-color: cadetblue;
+        }
+        .left{
+            background-color: red;
+        }
+        .center{
+            background-color: pink;
+        }
+        .right{
+            background-color: blue;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="wrap5">
+        <div class="left">left</div>
+        <div class="center">center</div>
+        <div class="right">right</div>
+    </div>
+    
+</body>
+</html>

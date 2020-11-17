@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+    <style>
+        .wrap3{
+            display:flex;
+            width: 600px ;
+            flex-direction: column;
+            justify-self: flex-end;
+            min-height: 200px;
+        }
+        .wrap3  .left{
+            flex-basis: 200px;
+            background: red;
+        }
+        .wrap3 .center{
+            flex: 1;
+            flex-basis: 100px;
+            background: rgb(175, 167, 169);
+        }
+        .wrap3 .right{
+            flex-basis: 200px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap3">
+        <div class="left"></div>
+        <div class="center">flex布局我在中间</div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>

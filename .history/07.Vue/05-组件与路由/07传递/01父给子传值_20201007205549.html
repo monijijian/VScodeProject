@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue父组件向子组件传值</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1></com1>
+    </div>
+
+    <template id="tem1">
+        <h2 v-bind:parmsg="msg">我是子组件。负组件中的数据:{{parmsg}}</h2>
+    </template>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:[1,2,3,4,5]
+            },
+            methods:{},
+            components:{
+                com1:{
+                    template:'#tem1',
+                    data:{
+                        function() {
+                            return {
+                                title:'子组件私有的数据title',
+                                content:'子组件的私有数据content'
+                            }
+                        }
+                    },
+                    props:['parmsg'],
+                    directives:{},
+                    filters:{},
+                    components:{},
+                    methods:{
+                        change(){
+
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

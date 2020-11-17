@@ -1,0 +1,3 @@
+class listNode(key){
+    cost
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+
+    <style>
+        .wrap3 div{
+            display:flex;
+            min-height: 200px;
+        }
+        .wrap .left{
+            flex-basis: 300px;
+            background: red;
+        }
+        .wrap .center{
+            flex:1;
+            background: pink;
+        }
+        .wrap .right{
+            flex-basis: 300px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap3">
+        <div class="left"></div>
+        <div class="center">flex布局我在中间</div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <p v-cloak>{{message}}</p>
+        <!-- 使用v-cloak解决插值表达式的闪烁问题 -->
+        
+        <p v-text='message'></p>
+        <!-- v-text默认没有闪烁问题。 -->
+        <!-- v-text会覆盖元素中原有的内容，插值表达式只会替换当前的占位符 -->
+
+        <div>{{msg2}}</div>
+        <div v-text='msg2'></div>
+        <div v-html='msg2'></div>
+        <!-- 只有v-html会解析标签，也会覆盖原有内容 -->
+
+        <input type="button" value="按钮" v-bind:title="mytitle + '123'">
+        <!-- v-bind是绑定的意思，title绑定到mytitle变量上,mytitle被当成变量
+        v-bind中可以写合法的js表达式 -->
+
+        <input type="button" value="按钮" v-bind:title="mytitle + '123'" v-on:cilick= 'show'>
+        <!-- v-on绑定事件 -->
+
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'123',
+                msg2:'<h1>hahahhahaha</h1>',
+                mytitle:'mytitle,hahahah'
+            },
+            methods:{//虽然带s但methods是对象，属性中定义了当前vue实例中所有可用的方法
+                show:function(){
+                    alert('hello');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- 1.如何定义一个基本的Vue代码机构 -->
+<!-- 2.插值表达式 和 v-text -->
+<!-- 3.v-cloak -->
+<!-- 4.v-html -->
+<!-- 5.属性绑定 v-bind  缩写  : -->
+<!-- 6.事件绑定 v-on    缩写  @ -->

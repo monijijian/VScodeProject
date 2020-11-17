@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字滚动显示</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        var v = new Vue({
+            el:'#app',
+            data:{
+                msg:''
+            },
+            methods:{
+                start:function(){
+                    var _this = this;
+                    setInterval(function(){
+                        var fri = _this.msg.substring(0,1);
+
+                        var end =_this.msg.substring(1);
+
+                        _this.msg = fri+end;
+                        console.msg(_this.msg);
+                    },400);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

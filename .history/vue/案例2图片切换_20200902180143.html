@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+   <style>
+       div{
+           width: 50px;
+           height: 50px;
+       }
+       .left{
+           background-color: rebeccapurple;
+           float: left;
+
+       }
+       .right{
+           background-color: rebeccapurple;
+           float: right;
+       }
+   </style>
+</head>
+<body>
+    <div id="app">
+        <span class = "left"><</span>
+        <img :src="imgsrc" alt="" width = "40px">
+        <span class = "right"></span>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgsrc:"img01.jpg"
+            },
+            methods:{
+                changeactive:function(){
+                }
+            }
+        })
+    </script>
+</body>
+</html>

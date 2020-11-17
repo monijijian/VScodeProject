@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡效果</title>
+
+    <style>
+        .body{
+            margin: 0;
+            padding: 0;
+            background-color: #eeeeee;
+        }
+        .content{
+            padding: 40px;
+            margin: 80px,auto;
+        }
+        .item{
+            background-color: cornsilk;
+            width: 100px;
+            height: 150px;
+            position: relative;
+
+            float: left;
+            margin: 30px;
+
+            overflow: hidden;
+            transition: all .5s linear;
+        }
+        .item:hover{
+            margin-top: 15px;
+            box-shadow:0 0 15px darkgray;
+        }
+
+        .spn1{
+            position: absolute;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            line-height: 100px;
+            padding: 0;
+        }
+        .item:hover .spn1{
+            line-height: 80px;
+        }
+
+        .spn2{
+            text-align: center;
+            background-color: lightblue;
+            width: 100%;
+            height: 80px;
+
+            position: absolute;
+            left: 0;
+            bottom: -80px;
+            
+            transition: all .6s ease-in;
+        }
+        .item:hover .spn2{
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="spn2">huwahu</span>
+        </div>
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="spn2">huwahu</span>
+        </div>
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="spn2">huwahu</span>
+        </div>
+    </div>
+</body>
+</html>

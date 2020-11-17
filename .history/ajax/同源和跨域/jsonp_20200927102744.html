@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsonp</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script type='text/javascript'>
+
+    //  定义eatFood()方法
+    function fn(data){
+        console.log('我被调用了');
+        console.log(data);
+    }
+</script>
+
+<script type="text/javascript" src='http://127.0.0.1:5500/ajax/%E5%90%8C%E6%BA%90%E5%92%8C%E8%B7%A8%E5%9F%9F/jsonp.php?callback1=fn'></script>

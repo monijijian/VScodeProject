@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue私有组件</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <login1></login1>
+
+        <template id="login2">
+            <h3> i am login2 </h3>
+        </template>
+
+        <login2></login2>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{},
+            methods:{},
+            components:{
+                login1:{
+                    template:'<div><h3> i am login1</h3></div>'
+                },
+                login2:{
+                    template:'#login2'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

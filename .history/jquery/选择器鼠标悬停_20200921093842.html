@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标悬停，弹出下来菜单</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            align-content: space-around;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            background-color: cornflowerblue;
+        }
+        div>ul>li{
+            background-color: cadetblue;
+            width: 100px;
+            padding-left: 50px;
+            /* margin: 5px; */
+            float: left;
+        }
+        div>ul>li>ul{
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+        </ul>
+</div>
+</body>
+</html>

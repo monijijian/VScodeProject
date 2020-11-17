@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.component方法定义、注册组件（一步到位）</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <account>
+        hakkfja
+    </account>
+    
+    <script>
+        //定义、注册组件：第一个参数是组件名字，第二个是组件的代码
+        Vue.component('account',{
+            template:'<div><h2>i am  a h2</h2></div>'
+        });
+
+        new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

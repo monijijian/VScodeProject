@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="father" @click="fatherClick">
+            <div class="child" @click="childClick">
+            </div>
+            <!-- 默认是冒泡传递出发时间，所以是child先被点击，然后是father被点击 -->
+        </div>
+
+         <div class="father" @click="fatherClick">
+            <div class="child" @click="childClick">
+            </div>
+            <!-- 默认是冒泡传递出发时间，所以是child先被点击，然后是father被点击 -->
+        </div>
+    </div>
+
+    <script>
+        var v = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                fatherClick: function () {
+                    console.log('father 被点击了');
+                },
+                childClick: function () {
+                    console.log('child 被点击了');
+                }
+            }
+        })
+        });
+    </script>
+</body>
+</html>

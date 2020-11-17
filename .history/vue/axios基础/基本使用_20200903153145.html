@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model指令</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://unpkg.com/axios/dist/axios.min.js:"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model = "message" @keyup.enter="getM">
+        <h2 @click="setM">{{message}}</h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"hi !"
+            },
+            methods:{
+                getM:function(){
+                    alert(this.message);
+                },
+                setM:function(){
+                    this.message="hahahahah";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

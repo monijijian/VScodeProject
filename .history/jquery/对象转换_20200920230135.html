@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象转换</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+</head>
+<body>
+    <ul>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+        <li>哈哈哈哈哈，我要哇哈哈</li>
+    </ul>
+
+    <script>
+        $(function(){
+            var jqli = $("li");
+
+            for(let i=0;i<jqli.length;i++){
+                if(i%2 === 0){
+                    jqli[i].style.backgroundColor = "pink";
+                }else{
+                    jqli[i].style.backgroundColor = "yellow";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

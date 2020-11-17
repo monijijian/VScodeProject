@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一步：model层的接口封装
+        const promise = new Promise((resolve,reject)=>{
+            //这里做异步任务（比如Ajax请求接口，这里暂时用定时器代替）
+            setTimeout(()=>{
+                var data = {retCode:0,msg:'i am message'};//接口返回的数据
+                if(data.retCode == 0){
+                    //接口请求成功时调用
+                    resolve(data);
+                }else{
+                    //接口请求失败时调用
+                    reject({retCode:-1,msg:'hi it`s a error'});
+                }
+            },100)
+        });
+
+        //第二步：业务层的接口调用。这里的data就是从resolve 和 reject 传过来的，从接口拿到的数据
+        promise.then((data) => {
+            //从resolve获取正确结果
+            console.log(data);
+        }).catch((data) => {
+            //从reject中获取异常结果
+            console.log(data);
+        });
+    </script>
+    
+</body>
+</html>

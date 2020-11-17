@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC清除浮动 </title>
+
+    <style>
+        .par{
+            border: 5px solid red;
+            min-height: 10px;
+        }
+        .son{
+            height: 100px;
+            width: 100px;
+            float: left;
+            background: green;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="par" style="overflow: hidden;">
+        <div class="son"></div>
+    </div>
+
+    <div class="par" style="float: left;">
+        <div class="son"></div>
+    </div>
+
+</body>
+</html>

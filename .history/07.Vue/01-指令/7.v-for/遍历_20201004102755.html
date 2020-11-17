@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for:"item in arr">{{item}}</li>
+            <!-- 数组的遍历 -->
+
+            <li v-for="(item,index) in objList">姓名：{{item.name}} --- 年龄：{{item.age}} --- 索引：{{index}}</li>
+            <!-- 对象数组的便利，有索引 -->
+
+            <!-- 括号里如果写两个参数：则第一个参数代表value，第二个参数代表key -->
+            <li v-for="(value,key) in obj1">值：{{value}} --- 键：{{key}} </li>
+            <h3>---分隔线---</h3>
+            <!-- 括号里如果写三个参数：则第一个参数代表value，第二个参数代表key，第三个参数代表index -->
+            <li v-for="(value,key,index) in obj1">值：{{value}} --- 键：{{key}} --- index：{{index}} </li>
+
+            <li v-for
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4],
+
+                //对象数组
+                objList: [
+                    { name: 'smyh', age: '26' },
+                    { name: 'vae', age: '32' },
+                    { name: 'xiaoming', age: '20' }
+                ],
+
+                obj1:{
+                    name:'echo',
+                    age:22,
+                    gender:'女'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点我" id = "btn">
+    <h1>我是土著</h1>
+
+    <script>
+
+        //绑定点击事件
+        document.getElementById('#btn').onclick = function(){
+            //1. new一个XMLHttpRequest的对象
+        let aobj = new XMLHttpRequest();
+
+        //2. 通过open()方法设置 方法、地址  参数
+        aobj.open('get','02-ajax.php');
+
+        //3.发送请求
+        aobj.send();
+
+        //4.注册事件 onreadystatechange事件，状态改变时就会调用
+        //如果要在数据完整请求回来的时候才调用，需要写一些判断的逻辑
+        aobj.onreadystatechange = function(){
+            //为了保证数据完整返回，需要判断两个值
+            if(aobj.readyState==4 && aobj.status ==200){
+                //到这说明 数据返回，且请求的页面是存在的
+                
+                //5. 在注册的事件中获取返回的  内容 并且修改页面的显示
+                console.log('数据返回成功');
+
+                //数据是保存在  异步对象  的属性中
+                console.log(aobj.responseText);
+
+                //修改页面的显示
+                document.querySelector('h1').innerHTML = aobj.responseText;
+            }
+        }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on事件绑定指令</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--这个div区域就是mvvm中的view  -->
+    <div id="app">
+        <p>{{name}}</p>
+        <button v-on:click="change">改变name的值·</button>
+        <br/>
+        <button @click="add">add</button>
+    </div>
+
+    <script>
+        //new出来的对象就是mvvm中的view module
+        var v = new Vue({
+            el:'#app',   //当前vue对象将接管上面的div区域
+            data:{//data就是mvvm中的module
+                name:'i am a name string'
+            },
+
+            //这个  methods 属性中定义了当前实例所有 可用的方法
+            methods:{
+                change:function(){//上面的 button 按钮的 点击事件
+                    this.name += ' ! ';
+                },
+                add:function(){
+                    this.name += '?';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

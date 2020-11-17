@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post请求</title>
+</head>
+<body>
+    <h1>i am h1</h1>
+    <button id = 'btn'>click</button>
+
+    <script>
+        document.querySelector('#btn').onclick = function(){
+            var aobj = new XMLHttpRequest();
+
+            aobj.open('post','02-ajax.php');
+
+            //设置请求头
+            aobj.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+            
+        }
+    </script>
+</body>
+</html>

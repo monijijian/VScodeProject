@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE实现列表功能</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <table>
+            <th>编号</th>
+            <th>编号</th>
+            <th>编号</th>
+            <th>编号</th>
+            <tr v-for="item in list">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.ctime}}</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                list:[{id:1,name:'xiao1',ctime:new Date}]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue父组件向子组件传值</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1 v-bind:parmsg="msg"></com1>
+    </div>
+
+    <template id="tem1">
+        <!-- 第二步：在组件中，使用props中的属性 -->
+        <h2 >我是子组件。负组件中的数据:{{parmsg}}</h2>
+    </template>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:[1,2,3,4,5]
+            },
+            methods:{},
+            components:{
+                com1:{
+                    template:'#tem1',
+                    data:{
+                        function() {
+                            return {
+                                title:'子组件私有的数据title',
+                                content:'子组件的私有数据content'
+                            }
+                        }
+                    },
+                    // 注意： 组件中的 所有 props 中的数据，都是通过 父组件 传递给子组件的
+                    // props 中的数据，都是只读的，无法重新赋值
+                    props: ['parmsg'], // 第一步：把父组件传递过来的 parentMsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
+                    directives: {},
+                    directives:{},
+                    filters:{},
+                    components:{},
+                    methods:{
+                        change(){
+
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

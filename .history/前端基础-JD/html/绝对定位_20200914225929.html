@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对布局</title>
+    <style>
+        .wrap2 div{
+            position: absolute;
+            min-height: 200px;;
+        }
+        .wrap2 .left{
+            left:0;
+            width: 300px;
+            background-color: red;
+        }
+        .wrap2 .right{
+            right: 0;
+            width: 300px;
+            background-color: blue;
+        }
+        .wrap2 .center{
+            left: 300px;
+            right:300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap2">
+
+        <div class="left"></div>
+        <div class="center"> 绝对定位 水平垂直居中</div>
+        <div class="right"></div>
+
+    </div>
+</body>
+</html>

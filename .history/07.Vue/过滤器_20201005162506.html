@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue过滤器</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 通过过滤器msgFormat对msg进行过滤 -->
+        <p>{{msg | msgFormat}}</p>
+    </div>
+
+    <script>
+        //定义一 Vue 全局的过滤器，名字叫做 msgFormat
+        Vue.filter('msgFormat',function(myMsg){
+            // 字符串的 replace 方法，第一个参数写要替换的 字符串 或 正则表达式
+            return myMsg.replace(/单纯/g,'邪恶');
+        })
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'我还是从前那个纯洁的少年，没有一丝丝改变，假纯洁'
+            },
+            methods:{}
+        });
+    </script>
+</body>
+
+</html>

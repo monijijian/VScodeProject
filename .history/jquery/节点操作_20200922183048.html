@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery节点操作</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul id = 'ul1'>
+        <li>我是土著</li>
+    </ul>
+    <button id="btn1">点我</button>
+
+    <script>
+        $(function(){
+
+            //动态创建元素
+            var node1 = $('<span>我是一个span元素</span>');//返回的时jQuery对象，相当于document.createElement('标签名')
+            
+            $('#ul1>li').mousedown(function(){
+                var node2 = $('#ul1').html('<li>我是通过jQuery创建的li</li>');//相当于innerHtml方法
+                alert(node1);
+            });
+
+            //添加元素
+            $('#btn1').mousedown(function(){
+                //参数有两种，jquery对象，或者是html代码
+                $('#ul1').append(node1);//如果是页面中存在的元素，那么会调改位置，而不是新增
+                $('#ul1').append('<li>我是新li</li>');
+                //$('#ul1').appendTo(node1);
+
+                $('#ul1').prepend(node1);//加在元素第一个子节点之前
+            });
+        });
+    </script>
+</body>
+</html>

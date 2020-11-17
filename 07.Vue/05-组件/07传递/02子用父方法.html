@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue子组件用父组件的方法</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 第一步，要使用父组件的哪一个方法  就把这个方法作为值赋给自定义的方法
+               如下  ，par是自定义的方法    show是父组件里的方法，就这样联系到一起 -->
+        <com1 @par="show"></com1>
+    </div>
+
+    <template id="tem1">
+        <input type="button" @click="son" value="点击">
+    </template>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                show:function(){
+                    alert('i am this parent');
+                }
+            },
+            components:{
+                com1:{
+                    template:'#tem1',
+                    data(){
+                        return{}
+                    },
+                    props:[],
+                    methods:{
+                        son:function(){
+                            alert('i am this son');
+
+                            // 第二步： 第一步已经把  父方法和par 联系到一块了，  可以通过emit调用  par方法
+                            //调用  par方法 就是调用 父组件的show 方法
+                            this.$emit('par');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

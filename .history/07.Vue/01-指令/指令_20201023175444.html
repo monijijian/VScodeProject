@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本指令的练习</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-v-cloak]{
+            display: none;
+        }
+        .blue{
+            color: blue;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <p>插值表达式：{{text}}</p>
+        <p v-cloak>插值表达式：{{msg}}</p>
+
+        <p class="red" v-text="乌兰巴托的夜">那么静那么静</p>
+        <p class="red" v-text="text">那么静那么静</p>
+
+        <p class="green" v-html="msg">插值表达式：{{msg}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'我们的爱，过了就不再回来',
+                text:'的世界'
+            },
+        })
+    </script>
+</body>
+</html>

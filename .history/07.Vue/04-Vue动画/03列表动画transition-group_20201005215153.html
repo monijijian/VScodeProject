@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue动画之 列表动画  Transition-group实现</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div>
+            <label>
+                ID:
+                <input type="text" v-model="id">
+                Name:
+                <input type="text" v-model="name">
+
+                <input type="button" @click = "add">
+            </label>
+        </div>
+
+        <transition-group>
+            <li v-for="(item,i) in list">
+                {{item.id}} --- {{item.name}} --- {{i}}
+            </li>
+        </transition-group>
+    </div>
+
+    <script>
+        new Vue({
+            el:'app',
+            data:{
+                list:[
+                    {id:1,name:'one'},
+                    {id:2,name:'two'},
+                    {id:3,name:'three'}
+                ],
+                id:0,
+                name:''
+            },
+            methods:{
+                add:function(){
+                    let cur = {};
+                    cur.id = this.id;
+                    cur.name = this.name;
+                    this.list.push(cur);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

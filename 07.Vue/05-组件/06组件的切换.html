@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue组件的切换</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="" @click.prevent="flag=true">登录</a>
+        <a href="" @click.prevent="flag=false">注册</a>
+
+        <log v-if="flag"></log>
+        <reg v-else="flag"></reg>
+    </div>
+
+    <template id="temlog">
+        <h3> i am a login component</h3>
+    </template>
+
+    <template id="temreg">
+        <h3>i am a regist component</h3>
+    </template>
+
+    <script>
+        Vue.component('log',{
+            template:'#temlog'
+        })
+        Vue.component('reg',{
+            template:'#temreg'
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                flag:true
+            }
+        })
+    </script>
+</body>
+</html>

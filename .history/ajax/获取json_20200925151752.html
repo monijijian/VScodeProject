@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax获取json数据</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <button id="btn1">json</button>
+    <table id="demo"></table>
+
+    <script>
+        $(function(){
+            $('#btn1').mousedown(function(){
+
+                let aj = new XMLHttpRequest();
+                aj.open('get','person.php',true);
+
+                let tab = '<tr><th>名字</th><th>年龄</th><th>国籍</th></tr><tr>';
+                aj.onreadystatechange = function(){
+                    if(aj.readyState==4 && aj.status==200){
+                        
+                        const res = aj.responseText;
+                        alert(res);
+                        const resobj = JSON.parse(res);//转化为js对象
+                        for(let i of resobj){
+                            tab += `<td>${resobj(i)}</td>`;
+                        }
+                        tab += '</tr>'
+                    }
+                    $('#demo').html(tab);
+                }
+                aj.send();
+            });
+        });
+    </script>
+</body>
+</html>

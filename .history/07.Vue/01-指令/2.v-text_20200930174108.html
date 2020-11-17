@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text指令</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-text]{
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span v-text = msg></span>
+    </div>
+
+    <script>
+        var v = new Vue({
+            el:'#app',
+            data:{
+                msg:'i just a msg'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body{
+            display: flexbox;
+            flex-flow: row no wrap;
+            justify-content: center;
+        }
+        div{
+            background-color: darkgray;
+        }
+        div button{
+            color: deeppink;
+            float: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>-</button>
+        <span>{{num}}</span>
+        <button>+</button>
+    </div>
+</body>
+</html>

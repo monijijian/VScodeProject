@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+
+    <style>
+        div{
+            margin: 0;
+            padding: 0;
+        }
+        .par{
+            width: 200px;
+            height: 200px;
+            border: solid 5px #00ee00;
+        }
+        .flo{
+            float: left;
+            width:  30px;
+            height: 30px;
+            background: lemonchiffon;
+        }
+        .usu{
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+            font-size: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="par">
+        <div class="flo"></div>
+        <div class="usu">
+            1111111111111
+            1111111111111
+            虽然浮动不会占据div盒子的位置
+            但会挤压里面的字体
+        </div>
+    </div>
+    
+    <div class="par">
+        <div style="width: 30px; height: 30px;">
+            <div class="flo"></div>
+        </div>
+        
+        <div class="usu">
+            1.来一个大盒子把浮动元素放进去
+        </div>
+    </div>
+
+    <div class="par">
+        <div class="flo"></div>
+        <div class="usu" style="clear: both;">
+            2.给不想搜浮动影响的盒子加上clear:both属性，清楚浮动影响
+        </div>
+    </div>
+
+    <div class="par">
+        <div class="flo"></div>
+        <div class="usu" style="overflow: hidden;">
+            2.给不想搜浮动影响的盒子加上clear:both属性，清楚浮动影响
+        </div>
+    </div>
+</body>
+</html>

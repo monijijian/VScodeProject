@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡效果</title>
+
+    <style>
+        .body{
+            margin: 0;
+            padding: 0;
+            background-color: #eeeeee;
+        }
+        .content{
+            padding: 40px;
+            margin: 80px,auto;
+        }
+        .item{
+            background-color: cornsilk;
+            width: 100px;
+            height: 150px;
+
+            float: left;
+            padding: 10px;
+            margin: 30px;
+
+            overflow: hidden;
+            transition: all,.5s,linear;
+        }
+        .item:hover{
+            margin-top: 15px;
+            box-shadow:0 0 15px darkgray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="apn2">huwahu</span>
+        </div>
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="apn2">huwahu</span>
+        </div>
+        <div class="item">
+            <span class="spn1">wuaiwu</span>
+            <span class="apn2">huwahu</span>
+        </div>
+    </div>
+</body>
+</html>

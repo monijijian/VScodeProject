@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-axioa</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- axios包导入 -->
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <input type="button" value="GET请求" class="get">
+    <input type="button" value="post请求" class="post">
+    <script>
+       document.querySelector(".get").onclick = function(){
+           axios.get("https://autumnfish.cn/api/joke/list?num=3")
+           .then(
+               function(response){
+               alert(response);
+           },
+           function(err){
+               console.log(err);
+           })
+       }
+
+       document.querySelector(".post").onclick = function(){
+           axios.post("https://autumnfish.cn/api/user/reg",{username:"jack"})
+           .then(function(res){
+               console.log(res);
+           });
+       }
+    </script>
+</body>
+</html>

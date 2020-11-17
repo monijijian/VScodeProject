@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue子组件向父组件传值</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1 @par="show"></com1>
+    </div>
+
+    <template id="tem1">
+        <input type="button" value="click" @click="son">
+    </template>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:[1,2,3,4,5]
+            },
+            methods:{
+                show:function(arg1,arg2){
+                    alert(`this one: ${arg1}  two:${arg2}`);
+                }
+            },
+            
+            components:{
+                com1:{
+                    template:'#tem1',
+                    data:{
+                        function() {
+                            return {
+                                title:'子组件私有的数据title',
+                                content:'子组件的私有数据content'
+                            }
+                        }
+                    },
+                    // 注意： 组件中的 所有 props 中的数据，都是通过 父组件 传递给子组件的
+                    // props 中的数据，都是只读的，无法重新赋值
+                    props: ['parmsg'], // 第一步：把父组件传递过来的 parentMsg 属性，先在 props 数组中，定义一下，这样，才能使用这个数据
+                    directives: {},
+                    directives:{},
+                    filters:{},
+                    components:{},
+                    methods:{
+                        son:function(){
+                            alert("this is son ！");
+                            this.$emit('par',this.title,content);
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

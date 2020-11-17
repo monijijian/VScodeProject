@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery操作DOM元素样式操作和类操作</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wl1{
+            width: 100px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button id='btn1'>点我</button>
+    <button id='btn2'>一步到位</button>
+    <div class="box1">box1</div>
+    <div id="box2">bo2</div>
+
+    <script>
+        //操作的样式很少可以通过.css()实现，类操作适合样式很多且维护方便
+        $(function(){
+            //获取DOM对象
+            var box1 = $('.box1');
+            var box2 = $('#box2');
+            var btn1 = $('#btn1');
+            var btn2 = $('#btn2')
+
+            //设置样式
+            box1.css('background-color','red');//设置单个样式
+            box2.css({'width':100,'height':100,'background-color':'pink'});//设置多个样式
+
+            //获取样式
+            //alert(box2.css('width'));
+
+            //添加类，去除类   设置样式的优先级比类样式的优先级要高
+            btn1.mousedown(function(){
+                box1.hasClass('wl1')?box1.removeClass('wl1'):box1.addClass('wl1');
+            });
+            //切换类
+            btn2.mousedown(function(){
+                box1.toggleClass('wl1');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title></title>
+
+ 
+
+//自定义模板
+<script type="text/template" id="app_tpl">
+<div class="product">
+<div class="imageContainer">
+<img src="{#img#}" />
+
+<div class="layer">
+<p>找同款</p>
+<p>找相似</p>
+</div>
+
+
+</div>
+<div class="concent">
+<p class="price">
+<span class="price-text">￥{#price#}</span>
+<span class="sum">{#sales#}人付款</span>
+</p>
+<p class="title">{#title#}</p>
+<p class="stroe">
+<span class="stroe-title">{#store#}</span>
+<span class="adress">{#adress#}</span>
+</p>
+</div>
+</div>
+
+</script>
+
+
+<style type="text/css">
+* {
+margin: 0;
+padding: 0;
+}
+
+#app {
+width: 1088px;
+margin: 50px auto;
+font-family: "微软雅黑";
+}
+
+.product {
+width: 250px;
+height: 360px;
+float: left;
+border: 1px solid #ccc;
+margin: 10px;
+}
+
+.product:hover{
+border: 1px solid #555B24;
+}
+.imageContainer{
+position: relative;
+width: 250px;
+height: 250px;
+}
+.product:hover .layer {
+display: block;
+}
+.layer{
+height:40px ;
+background: #F55B24;
+position: absolute;
+bottom: 0;
+left: 0;
+display: none;
+}
+.layer p {
+width: 125px;
+float: left;
+line-height: 30px;
+color: #fff;
+font-size: 12px;
+text-align: center;
+}
+
+.content {
+padding: 10px;
+}
+
+.content .price {
+width: 100%;
+line-height: 40px;
+height: 40px;
+}
+.price{
+height: 30px;
+}
+.price .price-text {
+color: #F55B24;
+font-size: 20px;
+float: left;
+font-weight: bold;
+}
+.price .price-text span{
+color: #fff;
+font-size:12px;
+background: #F55B24;
+font-weight: 400;
+vertical-align: top;
+}
+.price .sum {
+color: #999;
+font-size: 12px;
+display: inline;
+float: right;
+}
+
+.title {
+color: #666;
+font-size: 12px;
+}
+
+.stroe {
+width: 100%;
+color: #999;
+font-size: 12px;
+line-height: 30px;
+}
+
+.stroe .store-title {
+
+float: left;
+}
+
+.stroe .adress {
+float: right;
+}
+</style>
+</head>
+
+<body>
+<div id="app"></div>
+</body>
+
+//js
+<script type="text/javascript">
+//js命名空间 定义一个工具方法库
+var Util = {
+//获取获取元素数
+id: function(id) {
+return document.getElementById(id);
+},
+//封装ajax方法
+ajax: function(url, callback) {
+//创建XMLHttpRequest对象
+var xhr = new XMLHttpRequest();
+//订阅事件
+xhr.onreadystatechange = function() {
+if(xhr.readyState === 4) {
+if(xhr.status === 200) {
+var data = JSON.parse(xhr.responseText);
+callback && callback(data);
+}
+}
+}
+xhr.open("get", url, true);
+xhr.send(null);
+}
+
+
+
+}
+//格式化字符串
+function formDataString(str,data){
+return str.replace(/\{#(\w+)#\}/g,function(match,$1){
+// console.log(this,1) //this作用域
+// console.log(arguments,2)//参数列表
+return data[$1]===undefined?"":data[$1];
+});
+}
+var tpl = Util.id("app_tpl").innerHTML;
+
+var html="";
+
+Util.ajax("data/list.json",function(data) {
+var data=data.list;
+for(var i=0;i<data.length;i++){
+html+=formDataString(tpl,data[i])
+}
+
+Util.id('app').innerHTML=html;
+
+})
+</script>
+
+</html>

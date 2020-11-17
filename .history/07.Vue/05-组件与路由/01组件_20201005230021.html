@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extend定义组件 ，component方法注册组件</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- 如果要使用组件，直接把组件的名称，以html 标签的形式，引入到页面中，即可 -->
+        <account></account>
+    </div>
+
+    <script>
+        //第一步：使用Vue.extend 定义组件
+        var myAccount = Vue.extend({
+            template:'<div><h2> i am a h2 </h2> <h3> i am a h3 </h3></div>'
+        });
+
+        //第二步 使用Vue.component 注册组件
+        Vue.component('account',myAccount);
+
+        new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

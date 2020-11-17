@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show设置元素的显示和隐藏</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="toggle">显示/隐藏</button>
+        <div v-show="isshow"> i am a div </div>
+    </div>
+    
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isshow:true
+            },
+            methods:{
+                toggle:function(){
+                    this.isshow = !this.isshow;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

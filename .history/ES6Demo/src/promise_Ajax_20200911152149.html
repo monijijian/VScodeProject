@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const request = require('request');
+
+        //promise封装接口1
+        const request1 = function () {
+            const promise = new Promise((resolve,reject) => {
+                request('https://www.baidu.com',(response) =>{
+                    if(response.retCode == 200){
+                        //这里的response是接口1的返回结果
+                        resolve('requsest1 success ' + response);
+                    } else{
+                        reject('接口请求失败 !')
+                    }
+                })
+            });
+            return promise;
+        }
+
+        //Promise封装接口2
+        const request2 = function (){
+            const promise = new Promise((resolve,reject) => {
+                request('https://www.jd.com',(response) => {
+                    if(response.retCode == 20){
+                        resolve('request2 success ' ,response);
+                    } else {
+                        reject('接口请求事变')
+                    }
+                });
+            });
+            return promise;
+        }
+
+        //Promise封装接口3
+        const request3 = () =>{
+            const promise = new Promise((resolve,reject) =>{
+
+                request('https://www.taobao.com',(response) => {
+                    if(retCode == 200){
+                        resolve('request3 success ',response);
+                    } else {
+                        reject('接口请求失败')
+                    }
+                });
+            });
+            return promise;
+        }
+
+        //先发起request1,等resolve后再发起request2以此类推
+        request1()
+            .then((res1) => {
+                //接口1请求成功后，打印接口1的返回结果
+                console.log(res1);
+                return request2;
+            })
+            .then((res2) => {
+                //接口2请求成功后，打印接口2的返回结果
+                console.log(res2);
+                return request3;
+            })
+            .then((res3) => {
+                console.log(res3);
+                
+            });
+    </script>
+</body>
+</html>

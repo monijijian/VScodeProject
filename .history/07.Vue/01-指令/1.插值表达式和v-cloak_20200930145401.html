@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue插值表达式</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="cc">
+       my name is  {{name}},{{num+1}} ok? {{ok? 'yep' : 'no'}}
+       <span style="background-color: chartreuse;" v-cloak>{{ok? 'my name aleard talk':name}}</span>
+    </div>
+
+    <script>
+        var v = new Vue({
+            el:'#cc',
+            data:{
+                name:'echo',
+                num:1,
+                ok:true
+            }
+            //插值表达式允许运算一个表达式，但仅限一句表达式
+            //很想es6中的模板字符串
+        });
+    </script>
+</body>
+</html>

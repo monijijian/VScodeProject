@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on基础</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="事件绑定" v-on:click="doIT">
+        <input type="button" value="事件绑定" @click="doIT">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({//注意此处的Vue，首字母需要大写
+            el:"#app",
+            data:{//data中的元素需要用逗号隔开
+                content:"<a href='http://www.baidu.com'>百度一下</a>",
+                methods:{
+                    doIt:function(){
+                        alert("v-on指令生效！");
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

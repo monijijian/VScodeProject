@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片懒加载</title>
+
+    <style>
+        ul{
+                margin:0;
+                padding: 0;
+                list-style: none;
+            }
+            ul li{
+                width: 500px;
+                height: 309px;
+            }
+            ul li img{
+                width: 100%;
+                height: 100%;
+            }
+    </style>
+</head>
+<body>
+    <ul id="pictures">
+            <li>
+                <img src="image/1.jpg" alt="" data-src="image/1.jpg">
+            </li>
+            <li>
+                <img src="" alt="" data-src="image/2.jpg">
+            </li>
+            <li>
+                <img src="" alt="" data-src="image/3.jpg">
+            </li>
+            <li>
+                <img src="" alt="" data-src="image/4.jpg">
+            </li>
+            <li>
+                <img src="" alt="" data-src="image/5.jpg">
+            </li>
+    </ul>
+
+    <script>
+        var pictures = document.getElementById("pictures");
+        var len = pictures.children.length;
+        var timer = null;//设置一个定时器，不然一滚动鼠标就加载页面，浪费资源
+
+        //设置滚动事件监听器
+        window.addEventListener('scroll',function(){
+            if(timer){
+                clearTimeout(timer);//清除定时器
+            }
+            timer = setTimeout(()=>lazyloading(),300);
+        });
+
+        function lazyloading(){
+            //对图片进行遍历
+            for(let i=0;i<len;i++){
+                var scrollTop=document.documentElement.scrollTop;//已经滑动被盖住的距离
+                var height=window.innerHeight; //浏览器界面高度
+                var offsetTop=pictures.children[i].offsetTop; //当前图片元素距离页面顶部的距离
+
+                //判断当前图片 是否在视野中
+                if(offsetTop>=scrollTop&&offsetTop<scrollTop+offsetTop){
+                    //在视野范围内  判断是否加载  没有加载的加载上去
+                    var img=pictures.children[i].firstElementChild;
+                    if(img.getAttribute('src')!==img.getAttribute('data-src')){
+                        img.setAttribute('src',img.getAttribute('data-src'));
+                    }
+                }
+            }
+        }
+        lazyloading();//刚进入时加载一次界面
+    </script>
+</body>
+</html>

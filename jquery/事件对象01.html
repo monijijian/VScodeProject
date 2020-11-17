@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js">//首先引入jquery库</script>
+    <script>
+        $(function () {
+            $(document).on("click", {}, function (event) {
+                console.log(event.data);
+                console.log(event.currentTarget);
+                console.log(event.target);
+                console.log(event.pageX);
+                console.log(event.type);
+                console.log(event.which);
+                console.log(event.keyCode);
+            });
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

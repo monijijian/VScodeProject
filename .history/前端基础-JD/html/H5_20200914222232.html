@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动布局</title>
+    <style>
+        .wrap1 div{
+            text-align: center;
+            min-height: 200px;
+        }
+        .wrap1 .left{
+            float: left;
+            width: 300px;
+            background: red;
+        }
+        .wrap1 .right{
+            float: right;
+            width: 300px;
+            background-color: blue;
+        }
+        .wrap1.center{
+            background: blueviolet;
+        }
+        section{
+            min-height: 600px;
+            background: black;
+        }
+        .cc{
+            float: initial;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap1">
+        <div class="left">
+            左边
+        </div >
+
+        <div class="right">
+            右边
+        </div>
+
+        <div class="center">
+            我浮动在中间
+        </div>
+    </div>
+    
+    <section>
+        <div class="cc">
+            垂直水平居中
+        </div>
+    </section>
+</body>
+</html>

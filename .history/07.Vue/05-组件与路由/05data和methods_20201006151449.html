@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为组件添加data和methods</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <template id="exe">
+            <div>
+                <input type="button" value="add1" @click="add1">
+                <h3>{{res1}}</h3>
+                <hr>
+                <input type="button" value="add2" @click="add2">
+                <h3>{{res2}}</h3>
+            </div>
+        </template>
+
+        <com></com>
+
+        <com></com>
+    </div>
+
+    <script>
+        var num1=0,num2={num:0};
+
+        Vue.component('com',{
+            template:'#exe',
+            //组件中的 data
+            //【注意】组件中的data，不再是对象，而是一个方法（否则报错）；而且这个方法内部，还必须返回一个对象才行
+            // 组件中 的data 数据,使用方式,和实例中的 data 使用方式完全一样!!!
+            data:function(){
+                return {
+                    res1:this.num1,
+                    res2:this.num2
+                }
+            },
+            
+            methods:{
+                add1 (){
+                    this.num1++;
+                },
+                add2: function(){
+                    this.num2++;
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app',
+            data:{},
+            methods:{}
+        });
+    </script>
+</body>
+</html>

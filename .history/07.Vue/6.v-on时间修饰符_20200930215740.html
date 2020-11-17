@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="father" @click="fatherClick">
+            <div class="child" @click="childClick">
+            </div>
+            <!-- 默认是冒泡传递出发时间，所以是child先被点击，然后是father被点击 -->
+        </div>
+
+         <div class="father" @click="fatherClick">
+            <div class="child" @click.stop="childClick">
+            </div>
+            <!-- child事件绑定加上阻止冒泡的修饰符   就不再向父级元素冒泡事件   所以这个例子中father不被点击-->
+        </div>
+
+         <div class="father" @click.capture="fatherClick">
+            <div class="child" @click="childClick">
+            </div>
+            <!-- 父级绑定捕获修饰符  那么父级元素就只能被捕获触发，所以是父级先被触发 -->
+        </div>
+
+        <div class="father" @click.self="fatherClick">
+            <div class="child" @click="childClick">
+            </div>
+            <!-- self修饰符 只有自身（不包括子元素）出发时才会毁掉 -->
+        </div>
+
+        <a href="http://www.baidu.com" @click.prevent="linkClick">百度一下</a>
+        <!-- 超链接默认有跳转行为，prevent修饰符可以阻止这种默认行为 -->
+    </div>
+
+    <script>
+        var v = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                fatherClick: function () {
+                    console.log('father 被点击了');
+                },
+                childClick: function () {
+                    console.log('child 被点击了');
+                },
+                linkClick:function (){
+                    console.log('超链接被点击');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
